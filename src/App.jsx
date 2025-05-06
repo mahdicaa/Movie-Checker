@@ -86,7 +86,7 @@ export const Starrate = ({
             onMouseEnter={() => tempRatingUpdater(i)}
             onMouseLeave={() => tempRatingDefaulter(i)}
           >
-            {rate >= i + 1 ? (
+            {rate >= i + 1 || tempRating >= i + 1 ? (
               <img src={starIcon} alt="starIcon" className="w-12 h-12" />
             ) : (
               <img
