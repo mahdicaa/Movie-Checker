@@ -97,7 +97,7 @@ export const Starrate = ({
             )}
           </span>
         ))}
-        <p>{tempRating || ""}</p>
+        <p>{tempRating || rate || ""}</p>
       </div>
     </div>
   );
