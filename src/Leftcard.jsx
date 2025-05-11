@@ -42,7 +42,7 @@ export const Leftcard = ({ searchInput }) => {
   }, [searchInput]);
 
   return (
-    <div className="flex justify-center items-start w-1/2 p-8 bg-gray-800 rounded-xl flex-col gap-5 h-full overflow-y-scroll">
+    <div className="flex flex-col w-1/2 h-full p-8 bg-gray-800 rounded-xl gap-5 overflow-y-scroll">
       {isLoading ? (
         <Loader />
       ) : fetchError ? (

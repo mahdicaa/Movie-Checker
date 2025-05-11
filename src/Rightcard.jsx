@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Starrate } from "./Starrate";
 
 export const Rightcard = () => {
@@ -18,8 +18,19 @@ export const Rightcard = () => {
     // console.log("raft");
   };
 
+  // useEffect(() => {
+  //   const fetcher = async () => {
+  //     const res = await fetch(
+  //       `https://api.exchangerate.host/list?access_key=109c906ee3ae0f187763ad023b6bda1a`
+  //     );
+  //     const data = await res.json();
+  //     console.log(data);
+  //   };
+  //   fetcher();
+  // }, []);
+
   return (
-    <div className="flex justify-center items-center w-1/2 p-8 bg-gray-600 rounded-xl ">
+    <div className="flex justify-center items-center w-1/2 p-8 bg-gray-600 rounded-xl h-full ">
       <Starrate
         maxrating={10}
         onRate={handleToggleRating}

@@ -1,10 +1,14 @@
 export const MovieCard = ({ poster, title, year }) => {
   return (
-    <div className="flex justify-start w-full hover:bg-gray-700 cursor-pointer rounded-xl overflow-hidden">
-      <img src={poster} alt="photo of ${}" className="w-20" />
-      <div>
-        <div>{title}</div>
-        <div>{year}</div>
+    <div className="flex items-center gap-4 w-full hover:bg-gray-700 cursor-pointer rounded-xl transition">
+      <img
+        src={poster}
+        alt={`photo of ${title}`}
+        className="w-24 h-36 object-cover rounded"
+      />
+      <div className="text-white">
+        <div className="font-bold">{title}</div>
+        <div className="text-sm text-gray-400">{year}</div>
       </div>
     </div>
   );
