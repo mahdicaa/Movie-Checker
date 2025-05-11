@@ -3,14 +3,17 @@ import { ErrorMessage } from "./ErrorMessage";
 import { Loader } from "./Loader";
 import { MovieCard } from "./MovieCard";
 
-const APIKEY = "ff51c769";
-
-export const Leftcard = ({ searchInput }) => {
-  const [data, setData] = useState([]);
+export const Leftcard = ({
+  searchInput,
+  onSelectedMovie,
+  data,
+  setData,
+  APIKEY,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchError, setFetchError] = useState(false);
 
-  console.log(searchInput);
+  // console.log(searchInput);
 
   useEffect(() => {
     const delay = setTimeout(() => {
@@ -54,6 +57,9 @@ export const Leftcard = ({ searchInput }) => {
             poster={data.Poster}
             title={data.Title}
             year={data.Year}
+            type={data.Type}
+            onSelectedMovie={onSelectedMovie}
+            imdbID={data.imdbID}
           />
         ))
       )}

@@ -1,44 +1,25 @@
 import { useEffect, useState } from "react";
-import { Starrate } from "./Starrate";
+import { MovieDetailCard } from "./MovieDetailCard";
+import { StarRating } from "./StarRating";
 
-export const Rightcard = () => {
-  const [rate, setRate] = useState(0);
-  const [tempRating, setTempRating] = useState(0);
+export const Rightcard = ({ selectedMovieID, APIKEY }) => {
+  const [curMovieData, setCurrMovieData] = useState(null);
 
-  const handleToggleRating = (rating) => {
-    setRate(rating);
-    // console.log("update shod!");
-  };
-  const tempRatingUpdater = (i) => {
-    setTempRating(i + 1);
-    // console.log("omad");
-  };
-  const tempRatingDefaulter = (i) => {
-    setTempRating(0);
-    // console.log("raft");
-  };
-
-  // useEffect(() => {
-  //   const fetcher = async () => {
-  //     const res = await fetch(
-  //       `https://api.exchangerate.host/list?access_key=109c906ee3ae0f187763ad023b6bda1a`
-  //     );
-  //     const data = await res.json();
-  //     console.log(data);
-  //   };
-  //   fetcher();
-  // }, []);
+  useEffect(() => {
+    const movieIDfetcher = async () => {
+      const res = await fetch(
+        `http://www.omdbapi.com/?apikey=${APIKEY}&i=${selectedMovieID}`
+      );
+      const currentMovie = await res.json();
+      setCurrMovieData(() => currentMovie);
+    };
+    movieIDfetcher();
+  }, [selectedMovieID]);
 
   return (
-    <div className="flex justify-center items-center w-1/2 p-8 bg-gray-600 rounded-xl h-full ">
-      <Starrate
-        maxrating={10}
-        onRate={handleToggleRating}
-        rate={rate}
-        tempRating={tempRating}
-        tempRatingUpdater={tempRatingUpdater}
-        tempRatingDefaulter={tempRatingDefaulter}
-      />
+    <div className="flex flex-col items-start w-1/2  bg-gray-800 rounded-xl h-full overflow-hidden">
+      {selectedMovieID && <MovieDetailCard curMovieData={curMovieData} />}
+      <StarRating />
     </div>
   );
 };
