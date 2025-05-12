@@ -9,6 +9,7 @@ export const Leftcard = ({
   data,
   setData,
   APIKEY,
+  numberResults,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchError, setFetchError] = useState(false);
@@ -27,7 +28,7 @@ export const Leftcard = ({
           const data = await res.json();
 
           setData(data.Search);
-          // console.log(data);
+          numberResults(data.Search);
 
           if (data.Response === "False") {
             throw new Error("Invalid API key");
