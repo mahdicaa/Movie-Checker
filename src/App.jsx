@@ -1,7 +1,6 @@
 import { Navbar } from "./Navbar";
 import { Leftcard } from "./Leftcard";
 import { Rightcard } from "./Rightcard";
-import { StarRating } from "./StarRating";
 import { useState } from "react";
 
 function App() {
@@ -17,6 +16,11 @@ function App() {
     setSelectedMovieID((prevID) => (prevID === id ? null : id));
     // console.log(selectedMovieID);
   };
+
+  const returnButton = () => {
+    setSelectedMovieID(null);
+  };
+
   return (
     <div className="p-10 flex flex-col bg-gray-950 min-h-screen">
       <Navbar onInputhandler={searchInputHandler} />
@@ -28,7 +32,11 @@ function App() {
           setData={setData}
           APIKEY={APIKEY}
         />
-        <Rightcard selectedMovieID={selectedMovieID} APIKEY={APIKEY} />
+        <Rightcard
+          selectedMovieID={selectedMovieID}
+          APIKEY={APIKEY}
+          onReturnAction={returnButton}
+        />
       </div>
       {/* <div className="flex justify-center items-center m-10">
         <StarRating />
