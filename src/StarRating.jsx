@@ -48,6 +48,7 @@ export const StarFile = ({
       onClick={onAddRateAction}
       onMouseEnter={addHoverHandler}
       onMouseLeave={removeHoverHandler}
+      className="cursor-pointer"
     >
       {isHover >= i || isRated >= i ? (
         <svg
