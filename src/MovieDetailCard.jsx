@@ -7,12 +7,12 @@ export const MovieDetailCard = ({ curMovieData }) => {
         className="w-32 h-48 object-cover "
       />
       <div className="text-white">
-        <div className="font-bold">{curMovieData.Title}</div>
-        <div>
+        <div className="font-bold text-2xl">{curMovieData.Title}</div>
+        <div className="mt-3">
           {curMovieData.Released} . {curMovieData.Runtime}
         </div>
-        <div>{curMovieData.Genre}</div>
-        <div className="flex gap-2">
+        <div className="mt-3">{curMovieData.Genre}</div>
+        <div className="flex gap-2 mt-3">
           <svg
             fill="orange"
             width="20px"
@@ -34,7 +34,7 @@ export const MovieDetailCard = ({ curMovieData }) => {
   C22.602,0.567,25.338,0.567,26.285,2.486z"
             />
           </svg>
-          <div>{curMovieData.imdbRating}</div>
+          <div>{curMovieData.imdbRating} IMDB rating</div>
         </div>
       </div>
     </div>
