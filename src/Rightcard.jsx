@@ -17,7 +17,7 @@ export const Rightcard = ({ selectedMovieID, APIKEY }) => {
   }, [selectedMovieID]);
 
   return (
-    <div className="flex flex-col items-start w-1/2  bg-gray-800 rounded-xl h-full overflow-hidden">
+    <div className="flex flex-col items-center w-1/2  bg-gray-800 rounded-xl h-full overflow-hidden">
       {selectedMovieID && <MovieDetailCard curMovieData={curMovieData} />}
       <StarRating />
     </div>
