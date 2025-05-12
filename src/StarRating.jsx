@@ -30,7 +30,7 @@ export const StarRating = () => {
           </div>
         );
       })}
-      <p className="p-4">{isRated + 1}</p>
+      <p className="p-4 text-orange-400 font-bold">{isRated + 1}</p>
     </div>
   );
 };

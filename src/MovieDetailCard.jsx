@@ -4,7 +4,7 @@ export const MovieDetailCard = ({ curMovieData }) => {
       <img
         src={curMovieData.Poster}
         alt={`photo of ${curMovieData.Title}`}
-        className="w-32 h-48 object-cover rounded"
+        className="w-32 h-48 object-cover "
       />
       <div className="text-white">
         <div className="font-bold">{curMovieData.Title}</div>
