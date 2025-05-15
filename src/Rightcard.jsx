@@ -35,7 +35,9 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
 
   return (
     <div className="relative flex flex-col items-center w-1/2  bg-gray-800 rounded-xl h-full overflow-hidden">
-      {!selectedMovieID ? <WatchedMovies /> : null}
+      {!selectedMovieID ? (
+        <WatchedMovies watchedMoviesList={watchedMoviesList} />
+      ) : null}
       {selectedMovieID && (
         <button
           onClick={onReturnAction}

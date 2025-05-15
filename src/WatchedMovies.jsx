@@ -1,4 +1,4 @@
-export const WatchedMovies = () => {
+export const WatchedMovies = ({ watchedMoviesList }) => {
   return (
     <div className="w-full">
       <div className="text-white bg-gray-700 w-full p-7 drop-shadow-xl">
@@ -57,6 +57,17 @@ export const WatchedMovies = () => {
           </p>
           <p className="ml-4">X min</p>
         </div>
+      </div>
+      <div className="flex flex-col m-3 gap-2">
+        {watchedMoviesList.map((item) => (
+          <div className="">
+            <img
+              src={item.poster}
+              alt={`photo of ${item.id}`}
+              className="w-16 h-24 object-cover rounded"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
