@@ -6,7 +6,7 @@ import { Button } from "./Button";
 
 export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
   const [curMovieData, setCurrMovieData] = useState(null);
-  const [watchedMovies, setWatchedMovies] = useState([]);
+  const [watchedMoviesList, setWatchedMoviesList] = useState([]);
 
   useEffect(() => {
     const movieIDfetcher = async () => {
@@ -20,15 +20,17 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
     movieIDfetcher();
   }, [selectedMovieID]);
 
-  const watchedMoviesHandler = (data) => {
-    const alreadyExist = watchedMovies.find((item) => item.id === data.imdbID);
+  const watchedMoviesListHandler = (data) => {
+    const alreadyExist = watchedMoviesList.find(
+      (item) => item.id === data.imdbID
+    );
     if (alreadyExist) return;
 
-    setWatchedMovies((prev) => [
+    setWatchedMoviesList((prev) => [
       ...prev,
       { id: data.imdbID, rating: data.imdbRating, poster: data.Poster },
     ]);
-    // console.log(watchedMovies);
+    console.log(watchedMoviesList);
   };
 
   return (
@@ -54,7 +56,7 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
                 className={
                   "bg-blue-700 hover:bg-blue-800 transition p-2 rounded-2xl cursor-pointer"
                 }
-                clickAction={watchedMoviesHandler}
+                clickAction={watchedMoviesListHandler}
                 data={curMovieData}
               />
             </div>
