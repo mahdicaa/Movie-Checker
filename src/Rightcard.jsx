@@ -7,6 +7,7 @@ import { Button } from "./Button";
 export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
   const [curMovieData, setCurrMovieData] = useState(null);
   const [watchedMoviesList, setWatchedMoviesList] = useState([]);
+  const [isRatedStar, setIsRatedStar] = useState();
 
   useEffect(() => {
     const movieIDfetcher = async () => {
@@ -15,7 +16,7 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
       );
       const currentMovie = await res.json();
       setCurrMovieData(() => currentMovie);
-      console.log(currentMovie);
+      // console.log(currentMovie);
     };
     movieIDfetcher();
   }, [selectedMovieID]);
@@ -34,10 +35,14 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
         rating: data.imdbRating,
         poster: data.Poster,
         runtime: data.Runtime,
+        // isRated: isRatedStar,
       },
     ]);
-    // console.log(watchedMoviesList);
   };
+
+  // const isRatedStarHandler = (item) => {
+  //   setIsRatedStar(() => item);
+  // };
 
   return (
     <div className="relative flex flex-col items-center w-1/2  bg-gray-800 rounded-xl h-full overflow-y-scroll">
@@ -58,7 +63,9 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
         {selectedMovieID && (
           <div>
             <div className="p-5 bg-gray-700 rounded-2xl mb-5 mt-10">
-              <StarRating />
+              <StarRating
+              // isRatedStarHandler={isRatedStarHandler}
+              />
               <Button
                 buttonText={"Add to your watchlist"}
                 className={

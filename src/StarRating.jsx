@@ -1,39 +1,44 @@
 import { useState } from "react";
 
-export const StarRating = () => {
-  const [isRated, setIsRated] = useState(0);
-  const [isHover, setIsHover] = useState(0);
+export const StarRating = () =>
+  // { isRatedStarHandler }
+  {
+    const [isRated, setIsRated] = useState(0);
+    const [isHover, setIsHover] = useState(0);
 
-  const addRateHandler = (num) => {
-    setIsRated(() => num);
-  };
-  const addHoverHandler = (num) => {
-    setIsHover(() => num);
-  };
-  const removeHoverHandler = () => {
-    setIsHover(0);
-  };
+    const addRateHandler = (num) => {
+      setIsRated(() => num);
+    };
+    const addHoverHandler = (num) => {
+      setIsHover(() => num);
+    };
+    const removeHoverHandler = () => {
+      setIsHover(0);
+    };
 
-  return (
-    <div className="flex justify-center items-center">
-      {Array.from({ length: 10 }, (_, i) => {
-        return (
-          <div key={i}>
-            <StarFile
-              i={i}
-              isRated={isRated}
-              isHover={isHover}
-              onAddRateAction={() => addRateHandler(i)}
-              addHoverHandler={() => addHoverHandler(i)}
-              removeHoverHandler={() => removeHoverHandler()}
-            />
-          </div>
-        );
-      })}
-      <p className="p-4 text-orange-400 font-bold">{isRated + 1}</p>
-    </div>
-  );
-};
+    return (
+      <div className="flex justify-center items-center">
+        {Array.from({ length: 10 }, (_, i) => {
+          return (
+            <div key={i}>
+              <StarFile
+                i={i}
+                isRated={isRated}
+                isHover={isHover}
+                onAddRateAction={() => {
+                  addRateHandler(i);
+                  // isRatedStarHandler(i);
+                }}
+                addHoverHandler={() => addHoverHandler(i)}
+                removeHoverHandler={() => removeHoverHandler()}
+              />
+            </div>
+          );
+        })}
+        <p className="p-4 text-orange-400 font-bold">{isRated + 1}</p>
+      </div>
+    );
+  };
 
 export const StarFile = ({
   isRated,
