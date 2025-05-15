@@ -15,7 +15,7 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
       );
       const currentMovie = await res.json();
       setCurrMovieData(() => currentMovie);
-      // console.log(currentMovie);
+      console.log(currentMovie);
     };
     movieIDfetcher();
   }, [selectedMovieID]);
@@ -28,9 +28,15 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
 
     setWatchedMoviesList((prev) => [
       ...prev,
-      { id: data.imdbID, rating: data.imdbRating, poster: data.Poster },
+      {
+        title: data.Title,
+        id: data.imdbID,
+        rating: data.imdbRating,
+        poster: data.Poster,
+        runtime: data.Runtime,
+      },
     ]);
-    console.log(watchedMoviesList);
+    // console.log(watchedMoviesList);
   };
 
   return (
