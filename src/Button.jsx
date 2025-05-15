@@ -1,7 +1,9 @@
-export const Button = ({ buttonText, className }) => {
+export const Button = ({ buttonText, className, clickAction, imdbID }) => {
   return (
     <div className=" flex justify-center items-center">
-      <button className={className}>{buttonText}</button>
+      <button className={className} onClick={() => clickAction(imdbID)}>
+        {buttonText}
+      </button>
     </div>
   );
 };

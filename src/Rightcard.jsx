@@ -6,6 +6,7 @@ import { Button } from "./Button";
 
 export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
   const [curMovieData, setCurrMovieData] = useState(null);
+  const [watchedMovies, setWatchedMovies] = useState([]);
 
   useEffect(() => {
     const movieIDfetcher = async () => {
@@ -18,6 +19,11 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
     };
     movieIDfetcher();
   }, [selectedMovieID]);
+
+  const watchedMoviesHandler = (id) => {
+    setWatchedMovies(() => [...watchedMovies, id]);
+    console.log(watchedMovies);
+  };
 
   return (
     <div className="relative flex flex-col items-center w-1/2  bg-gray-800 rounded-xl h-full overflow-hidden">
@@ -42,6 +48,8 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
                 className={
                   "bg-blue-700 hover:bg-blue-800 transition p-2 rounded-2xl cursor-pointer"
                 }
+                clickAction={watchedMoviesHandler}
+                imdbID={curMovieData.imdbID}
               />
             </div>
             <i className="mt-5">{curMovieData.Plot}</i>
