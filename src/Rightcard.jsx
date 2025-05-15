@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { MovieDetailCard } from "./MovieDetailCard";
 import { StarRating } from "./StarRating";
 import { WatchedMovies } from "./WatchedMovies";
+import { Button } from "./Button";
 
 export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
   const [curMovieData, setCurrMovieData] = useState(null);
@@ -36,6 +37,12 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
           <div>
             <div className="p-5 bg-gray-700 rounded-2xl mb-5 mt-10">
               <StarRating />
+              <Button
+                buttonText={"Add to your watchlist"}
+                className={
+                  "bg-blue-700 hover:bg-blue-800 transition p-2 rounded-2xl cursor-pointer"
+                }
+              />
             </div>
             <i className="mt-5">{curMovieData.Plot}</i>
             <p className="mt-5">{curMovieData.Actors}</p>
