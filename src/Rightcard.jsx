@@ -28,7 +28,7 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
       ...prev,
       { id: data.imdbID, rating: data.imdbRating, poster: data.Poster },
     ]);
-    console.log(watchedMovies);
+    // console.log(watchedMovies);
   };
 
   return (
