@@ -24,8 +24,8 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
     const alreadyExist = watchedMovies.find((item) => item.id === data.imdbID);
     if (alreadyExist) return;
 
-    setWatchedMovies(() => [
-      ...watchedMovies,
+    setWatchedMovies((prev) => [
+      ...prev,
       { id: data.imdbID, rating: data.imdbRating, poster: data.Poster },
     ]);
     console.log(watchedMovies);
