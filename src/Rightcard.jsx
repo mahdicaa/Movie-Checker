@@ -20,8 +20,14 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
     movieIDfetcher();
   }, [selectedMovieID]);
 
-  const watchedMoviesHandler = (id) => {
-    setWatchedMovies(() => [...watchedMovies, id]);
+  const watchedMoviesHandler = (data) => {
+    const alreadyExist = watchedMovies.find((item) => item.id === data.imdbID);
+    if (alreadyExist) return;
+
+    setWatchedMovies(() => [
+      ...watchedMovies,
+      { id: data.imdbID, rating: data.imdbRating, poster: data.Poster },
+    ]);
     console.log(watchedMovies);
   };
 
@@ -49,7 +55,7 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
                   "bg-blue-700 hover:bg-blue-800 transition p-2 rounded-2xl cursor-pointer"
                 }
                 clickAction={watchedMoviesHandler}
-                imdbID={curMovieData.imdbID}
+                data={curMovieData}
               />
             </div>
             <i className="mt-5">{curMovieData.Plot}</i>
