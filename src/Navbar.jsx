@@ -8,11 +8,11 @@ export const Navbar = ({ onInputhandler, numberOfResults }) => {
         onChange={onInputhandler}
         placeholder="Name of the movie..."
       />
-      {numberOfResults && (
+      {numberOfResults > 0 ? (
         <div className="font-bold text-white text-2xl">
           Found {numberOfResults} top results
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
