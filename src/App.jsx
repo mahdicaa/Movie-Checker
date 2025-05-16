@@ -6,7 +6,7 @@ import { useState } from "react";
 function App() {
   const APIKEY = "ff51c769";
   const [data, setData] = useState([]);
-  const [searchInput, setSearchInput] = useState("friends");
+  const [searchInput, setSearchInput] = useState("");
   const [selectedMovieID, setSelectedMovieID] = useState(null);
   const [numberOfResults, setNumberOfResults] = useState(0);
 
@@ -15,7 +15,6 @@ function App() {
   };
   const onSelectedMovie = (id) => {
     setSelectedMovieID((prevID) => (prevID === id ? null : id));
-    // console.log(selectedMovieID);
   };
 
   const returnButton = () => {
@@ -47,9 +46,6 @@ function App() {
           onReturnAction={returnButton}
         />
       </div>
-      {/* <div className="flex justify-center items-center m-10">
-        <StarRating />
-      </div> */}
     </div>
   );
 }

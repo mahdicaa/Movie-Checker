@@ -16,7 +16,6 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
       );
       const currentMovie = await res.json();
       setCurrMovieData(() => currentMovie);
-      // console.log(currentMovie);
     };
     movieIDfetcher();
   }, [selectedMovieID]);
