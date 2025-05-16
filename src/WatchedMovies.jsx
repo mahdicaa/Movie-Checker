@@ -1,9 +1,18 @@
 import { WatchedSummary } from "./WatchedSummary";
 
-export const WatchedMovies = ({ watchedMoviesList }) => {
+export const WatchedMovies = ({
+  watchedMoviesList,
+  itemNumber,
+  aveImdbRating,
+  totalRuntime,
+}) => {
   return (
     <div className="w-full">
-      <WatchedSummary />
+      <WatchedSummary
+        itemNumber={itemNumber}
+        aveImdbRating={aveImdbRating}
+        totalRuntime={totalRuntime}
+      />
       <div className="flex flex-col m-3 gap-2">
         {watchedMoviesList.map((item) => (
           <div className="flex" key={item.id}>

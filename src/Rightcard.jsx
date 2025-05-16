@@ -44,10 +44,29 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
     ]);
   };
 
+  const numberOfWatchedListItem = watchedMoviesList.length;
+
+  const aveImdbRating = watchedMoviesList
+    ? watchedMoviesList.reduce(
+        (sum, current) => sum + Number(current.rating),
+        0
+      ) / numberOfWatchedListItem
+    : 0;
+
+  const totalRuntime = watchedMoviesList.reduce(
+    (sum, current) => sum + Number(current.runtime.split(" ")[0]),
+    0
+  );
+
   return (
     <div className="relative flex flex-col items-center w-1/2  bg-gray-800 rounded-xl h-full overflow-y-scroll">
       {!selectedMovieID ? (
-        <WatchedMovies watchedMoviesList={watchedMoviesList} />
+        <WatchedMovies
+          watchedMoviesList={watchedMoviesList}
+          itemNumber={numberOfWatchedListItem}
+          aveImdbRating={aveImdbRating}
+          totalRuntime={totalRuntime}
+        />
       ) : null}
 
       {selectedMovieID && (

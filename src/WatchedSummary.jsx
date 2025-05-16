@@ -1,9 +1,9 @@
-export const WatchedSummary = () => {
+export const WatchedSummary = ({ itemNumber, aveImdbRating, totalRuntime }) => {
   return (
     <div className="text-white bg-gray-700 w-full p-7 drop-shadow-xl">
       <p className="font-bold">Movies you watched</p>
       <div className="flex">
-        <p>#️⃣ X Movies</p>
+        <p>#️⃣ {itemNumber} Movies</p>
         <p className="flex">
           <svg
             fill="orange"
@@ -27,7 +27,7 @@ export const WatchedSummary = () => {
   C22.602,0.567,25.338,0.567,26.285,2.486z"
             />
           </svg>{" "}
-          X
+          {aveImdbRating.toFixed(2)}
         </p>
         <p className="flex">
           <svg
@@ -54,7 +54,7 @@ export const WatchedSummary = () => {
           </svg>{" "}
           X
         </p>
-        <p className="ml-4">X min</p>
+        <p className="ml-4">{totalRuntime} min</p>
       </div>
     </div>
   );
