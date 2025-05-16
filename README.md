@@ -51,13 +51,6 @@ Then open `http://localhost:3000` in your browser.
 
 ---
 
-## 📸 Screenshot
-
-![Movie Checker Screenshot]
-![image](https://github.com/user-attachments/assets/52fb9587-0490-48e3-99c9-ce76e70b0e17)
-
----
-
 ## 📝 Notes
 
 - This project uses mocked or sample data (or integrate with APIs like OMDb/IMDb if not already).
