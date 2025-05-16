@@ -3,7 +3,7 @@
 
 A sleek and modern movie search app built with **React**, allowing users to search, browse, and rate their favorite movies and series.
 
-![App Screenshot](./screenshot.png)
+![image](https://github.com/user-attachments/assets/52fb9587-0490-48e3-99c9-ce76e70b0e17)
 
 ---
 
@@ -78,13 +78,5 @@ Then open `http://localhost:3000` in your browser.
 
 Built with ❤️ by [@mahdicaa](https://github.com/mahdicaa)  
 If you like this project, feel free to ⭐ the repo!
-
-
-
-
-
-
-
-![image](https://github.com/user-attachments/assets/52fb9587-0490-48e3-99c9-ce76e70b0e17)
 
 
