@@ -1,4 +1,4 @@
-🎬 Movie Checker
+#🎬 Movie Checker
 A sleek and modern movie search app built with React, allowing users to search, browse, and rate their favorite movies and series.
 
 
