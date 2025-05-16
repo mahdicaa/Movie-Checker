@@ -7,7 +7,7 @@ import { Button } from "./Button";
 export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
   const [curMovieData, setCurrMovieData] = useState(null);
   const [watchedMoviesList, setWatchedMoviesList] = useState([]);
-  const [isRatedStar, setIsRatedStar] = useState();
+  const [isRatedStar, setIsRatedStar] = useState(null);
 
   useEffect(() => {
     const movieIDfetcher = async () => {
@@ -20,6 +20,10 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
     };
     movieIDfetcher();
   }, [selectedMovieID]);
+
+  const alreadyWatchedMovie = watchedMoviesList.find(
+    (item) => item.id === selectedMovieID
+  );
 
   const watchedMoviesListHandler = (data) => {
     const alreadyExist = watchedMoviesList.find(
@@ -35,20 +39,17 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
         rating: data.imdbRating,
         poster: data.Poster,
         runtime: data.Runtime,
-        // isRated: isRatedStar,
+        userRating: isRatedStar,
       },
     ]);
   };
-
-  // const isRatedStarHandler = (item) => {
-  //   setIsRatedStar(() => item);
-  // };
 
   return (
     <div className="relative flex flex-col items-center w-1/2  bg-gray-800 rounded-xl h-full overflow-y-scroll">
       {!selectedMovieID ? (
         <WatchedMovies watchedMoviesList={watchedMoviesList} />
       ) : null}
+
       {selectedMovieID && (
         <button
           onClick={onReturnAction}
@@ -62,10 +63,12 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
       <div className="w-4/5 text-white">
         {selectedMovieID && (
           <div>
-            <div className="p-5 bg-gray-700 rounded-2xl mb-5 mt-10">
+            <div className="p-5 bg-gray-700 rounded-2xl mb-5 mt-10 flex flex-col justify-center items-center">
               <StarRating
-              // isRatedStarHandler={isRatedStarHandler}
+                onSetIsRatedStar={setIsRatedStar}
+                defaultRating={alreadyWatchedMovie?.userRating}
               />
+
               <Button
                 buttonText={"Add to your watchlist"}
                 className={

@@ -38,7 +38,7 @@ export const WatchedMovies = ({ watchedMoviesList }) => {
   C22.602,0.567,25.338,0.567,26.285,2.486z"
                     />
                   </svg>
-                  {item.isRatedStar}
+                  {item.userRating}
                 </div>
                 <div className="flex">
                   <svg

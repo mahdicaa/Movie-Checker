@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const StarRating = ({ onSetIsRatedStar }) => {
+export const StarRating = ({ onSetIsRatedStar, defaultRating }) => {
   const [isRated, setIsRated] = useState(0);
   const [isHover, setIsHover] = useState(0);
 
@@ -14,6 +14,14 @@ export const StarRating = ({ onSetIsRatedStar }) => {
   const removeHoverHandler = () => {
     setIsHover(0);
   };
+
+  useEffect(() => {
+    if (typeof defaultRating === "number") {
+      setIsRated(defaultRating);
+    } else {
+      setIsRated(-1);
+    }
+  }, [defaultRating]);
 
   return (
     <div className="flex justify-center items-center">
@@ -31,7 +39,9 @@ export const StarRating = ({ onSetIsRatedStar }) => {
           </div>
         );
       })}
-      <p className="p-4 text-orange-400 font-bold">{isRated + 1}</p>
+      <p className="p-4 text-orange-400 font-bold">
+        {isRated >= 0 ? isRated + 1 : ""}
+      </p>
     </div>
   );
 };
