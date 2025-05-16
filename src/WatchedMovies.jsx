@@ -6,7 +6,7 @@ export const WatchedMovies = ({ watchedMoviesList }) => {
       <WatchedSummary />
       <div className="flex flex-col m-3 gap-2">
         {watchedMoviesList.map((item) => (
-          <div className="flex">
+          <div className="flex" key={item.id}>
             <img
               src={item.poster}
               alt={`photo of ${item.id}`}
