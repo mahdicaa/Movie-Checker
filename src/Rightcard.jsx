@@ -69,14 +69,20 @@ export const Rightcard = ({ selectedMovieID, APIKEY, onReturnAction }) => {
                 defaultRating={alreadyWatchedMovie?.userRating}
               />
 
-              <Button
-                buttonText={"Add to your watchlist"}
-                className={
-                  "bg-blue-700 hover:bg-blue-800 transition p-2 rounded-2xl cursor-pointer"
-                }
-                clickAction={watchedMoviesListHandler}
-                data={curMovieData}
-              />
+              {!alreadyWatchedMovie ? (
+                <Button
+                  buttonText={"Add to your watchlist"}
+                  className={
+                    "bg-blue-700 hover:bg-blue-800 transition p-2 rounded-2xl cursor-pointer mt-3"
+                  }
+                  clickAction={watchedMoviesListHandler}
+                  data={curMovieData}
+                />
+              ) : (
+                <div className="mt-3">
+                  You have added this into your watchlist!
+                </div>
+              )}
             </div>
             <i className="mt-5">{curMovieData.Plot}</i>
             <p className="mt-5">{curMovieData.Actors}</p>
